@@ -5,159 +5,184 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plan SlimCoach – Menús Semanales</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --green-dark:  #0f0f0f;
-    --green-mid:   #e8a923;
-    --green-light: #2a2a2a;
-    --gold:        #e8a923;
-    --gold-light:  #1e1a0a;
-    --bg:          #f0f0f0;
-    --surface:     #ffffff;
-    --text:        #0f0f0f;
-    --muted:       #666666;
-    --border:      #e0e0e0;
-    --radius:      14px;
-    --radius-sm:   8px;
+    --black:   #0f0f0f;
+    --gold:    #e8a923;
+    --gold-bg: #1a1600;
+    --white:   #ffffff;
+    --bg:      #f0f0f0;
+    --muted:   #666666;
+    --border:  #e0e0e0;
+    --radius:  14px;
+    --radius-sm: 8px;
   }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--black); min-height: 100vh; }
+  img.emoji { height: 1em; width: 1em; margin: 0 .05em 0 .1em; vertical-align: -0.1em; }
 
   /* HERO */
-  .hero { background: var(--green-dark); color: white; }
+  .hero { background: var(--black); color: white; }
   .hero-inner { max-width: 900px; margin: 0 auto; padding: 48px 24px 36px; }
-  .eyebrow { font-family:'Sora',sans-serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#e8a923; margin-bottom:12px; }
+  .eyebrow { font-family:'Sora',sans-serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
   .hero h1 { font-family:'Sora',sans-serif; font-size:clamp(26px,5vw,42px); font-weight:700; line-height:1.15; margin-bottom:14px; }
   .hero h1 .gold { color:var(--gold); }
-  .hero-sub { font-size:15px; color:#999999; max-width:500px; line-height:1.6; margin-bottom:28px; }
+  .hero-sub { font-size:15px; color:#999; max-width:500px; line-height:1.6; margin-bottom:28px; }
   .pillars { display:flex; gap:8px; flex-wrap:wrap; }
-  .pillar { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:30px; padding:6px 13px; font-size:12px; color:#cccccc; display:flex; align-items:center; gap:5px; }
+  .pillar { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:30px; padding:6px 13px; font-size:12px; color:#ccc; }
 
   /* WATER BAR */
-  .water-bar { background:var(--gold); color:var(--green-dark); text-align:center; padding:10px 24px; font-size:13px; font-weight:500; }
-  .water-bar strong { font-weight:700; }
-  .eliminate-bar { background:#0f0f0f; border-bottom:1.5px solid #1a1a1a; }
-  .eliminate-inner { max-width:900px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-  .elim-label { font-size:11px; font-weight:600; color:#e05555; letter-spacing:1px; text-transform:uppercase; white-space:nowrap; flex-shrink:0; }
-  .elim-items { display:flex; gap:8px; flex-wrap:wrap; }
-  .elim-pill { display:flex; align-items:center; gap:5px; background:#2a1010; border:1px solid #4a2020; border-radius:20px; padding:5px 12px; font-size:12px; color:#e08080; }
-  .elim-x { font-size:11px; font-weight:700; color:#e05555; }
+  .water-bar { background:var(--gold); color:var(--black); text-align:center; padding:10px 24px; font-size:13px; font-weight:600; }
 
-  /* STORY SECTION */
-  .story-section { background:#ffffff; border-bottom:1.5px solid var(--border); }
-  .story-inner { max-width:900px; margin:0 auto; padding:36px 24px; display:flex; gap:28px; align-items:center; flex-wrap:wrap; background:#ffffff; }
-  .story-numbers { display:flex; gap:16px; flex-shrink:0; flex-wrap:wrap; }
-  .story-stat { background:#f0f0f0; border-radius:var(--radius); padding:18px 22px; text-align:center; min-width:110px; }
-  .story-stat .num { font-family:'Sora',sans-serif; font-size:32px; font-weight:700; color:#0f0f0f; line-height:1; }
-  .story-stat .lbl { font-size:11px; color:var(--muted); margin-top:4px; font-weight:500; }
-  .story-arrow { font-size:28px; color:var(--green-mid); align-self:center; }
-  .story-text h2 { font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:var(--text); margin-bottom:8px; }
+  /* ELIMINATE BAR */
+  .eliminate-bar { background:var(--black); border-bottom:1px solid #1a1a1a; }
+  .eliminate-inner { max-width:900px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .elim-label { font-size:11px; font-weight:600; color:#e05555; letter-spacing:1px; text-transform:uppercase; white-space:nowrap; }
+  .elim-items { display:flex; gap:7px; flex-wrap:wrap; }
+  .elim-pill { background:#2a1010; border:1px solid #4a2020; border-radius:20px; padding:4px 12px; font-size:12px; color:#e08080; }
+
+  /* STORY */
+  .story-section { background:var(--white); border-bottom:1px solid var(--border); }
+  .story-inner { max-width:900px; margin:0 auto; padding:32px 24px; display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+  .story-numbers { display:flex; gap:12px; align-items:center; flex-shrink:0; }
+  .story-stat { text-align:center; padding:14px 18px; border-radius:var(--radius); }
+  .story-stat.before { background:#f0f0f0; }
+  .story-stat.after { background:var(--gold); }
+  .story-stat .num { font-family:'Sora',sans-serif; font-size:32px; font-weight:700; line-height:1; }
+  .story-stat.before .num { color:var(--black); }
+  .story-stat.after .num { color:var(--black); }
+  .story-stat .lbl { font-size:11px; color:#666; margin-top:3px; }
+  .story-arrow { font-size:24px; color:var(--gold); }
+  .story-text h2 { font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:var(--black); margin-bottom:8px; }
   .story-text p { font-size:14px; color:var(--muted); line-height:1.7; }
-  .story-text p strong { color:var(--green-dark); font-weight:600; }
-  .story-badge { display:inline-flex; align-items:center; gap:6px; background:#1a1600; border:1.5px solid #e8a923; border-radius:30px; padding:5px 14px; font-size:12px; color:#e8a923; font-weight:600; margin-top:12px; }
+  .story-text p strong { color:var(--black); font-weight:600; }
+  .story-badge { display:inline-flex; align-items:center; gap:6px; background:var(--gold-bg); border:1.5px solid var(--gold); border-radius:30px; padding:5px 14px; font-size:12px; color:var(--gold); font-weight:600; margin-top:12px; }
 
-  /* PRICING SECTION */
-  .pricing-section { background:var(--surface); border-bottom:1.5px solid var(--border); }
-  .pricing-inner { max-width:900px; margin:0 auto; padding:36px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
-  .pricing-left h2 { font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:var(--text); margin-bottom:6px; }
-  .pricing-left p { font-size:13px; color:var(--muted); line-height:1.6; max-width:440px; }
-  .price-badge { display:flex; align-items:flex-end; gap:6px; margin-bottom:8px; }
-  .price-amount { font-family:'Sora',sans-serif; font-size:42px; font-weight:700; color:var(--green-dark); line-height:1; }
-  .price-period { font-size:14px; color:var(--muted); margin-bottom:6px; }
-  .price-note { font-size:11px; color:var(--muted); }
-  .includes { display:flex; flex-direction:column; gap:5px; margin-top:12px; }
-  .include-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); }
-  .check { width:16px; height:16px; border-radius:50%; background:var(--green-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:9px; color:var(--green-dark); font-weight:700; }
-  .subscribe-btn { background:#e8a923; color:#0f0f0f; border:none; border-radius:30px; padding:15px 30px; font-family:'Sora',sans-serif; font-size:15px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s; white-space:nowrap; }
+  /* PRICING */
+  .pricing-section { background:var(--white); border-bottom:1px solid var(--border); }
+  .pricing-inner { max-width:900px; margin:0 auto; padding:32px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+  .pricing-left h2 { font-family:'Sora',sans-serif; font-size:18px; font-weight:700; color:var(--black); margin-bottom:6px; }
+  .price-row { display:flex; align-items:baseline; gap:4px; margin-bottom:4px; }
+  .price-amt { font-family:'Sora',sans-serif; font-size:40px; font-weight:700; color:var(--black); line-height:1; }
+  .price-per { font-size:14px; color:var(--muted); }
+  .price-note { font-size:11px; color:#aaa; margin-bottom:12px; }
+  .includes { display:flex; flex-direction:column; gap:5px; }
+  .inc { display:flex; align-items:center; gap:8px; font-size:13px; color:#444; }
+  .chk { width:16px; height:16px; border-radius:50%; background:var(--black); display:flex; align-items:center; justify-content:center; font-size:9px; color:var(--gold); font-weight:700; flex-shrink:0; }
+  .subscribe-btn { background:var(--gold); color:var(--black); border:none; border-radius:30px; padding:14px 28px; font-family:'Sora',sans-serif; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.15s; white-space:nowrap; }
   .subscribe-btn:hover { background:#d4960f; }
-  .btn-note { font-size:11px; color:var(--muted); text-align:center; margin-top:7px; }
+  .btn-note { font-size:11px; color:#aaa; text-align:center; margin-top:6px; }
 
   /* MAIN */
   .main { max-width:900px; margin:0 auto; padding:32px 24px 64px; }
   .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--muted); text-decoration:none; margin-bottom:24px; }
-  .back-link:hover { color:#0f0f0f; }
-  .section-label { font-family:'Sora',sans-serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#888888; margin-bottom:14px; }
+  .back-link:hover { color:var(--black); }
+  .section-label { font-family:'Sora',sans-serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#888; margin-bottom:14px; }
 
   /* DAY TABS */
-  .day-nav { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; margin-bottom:24px; scrollbar-width:none; }
+  .day-nav { display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; margin-bottom:22px; scrollbar-width:none; }
   .day-nav::-webkit-scrollbar { display:none; }
-  .day-btn { flex-shrink:0; padding:8px 18px; border-radius:30px; border:1.5px solid var(--border); background:var(--surface); font-size:13px; font-weight:500; color:var(--muted); cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
-  .day-btn:hover { border-color:var(--green-mid); color:var(--green-dark); }
-  .day-btn.active { background:#0f0f0f; border-color:#0f0f0f; color:#e8a923; font-weight:600; }
+  .day-btn { flex-shrink:0; padding:8px 18px; border-radius:30px; border:1.5px solid var(--border); background:var(--white); font-size:13px; font-weight:500; color:var(--muted); cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+  .day-btn:hover { border-color:var(--gold); }
+  .day-btn.active { background:var(--black); border-color:var(--black); color:var(--gold); font-weight:600; }
 
-  /* FASTING RIBBON */
-  .fasting-ribbon { background:#1a1600; border:1.5px solid #e8a923; border-radius:var(--radius-sm); padding:12px 16px; display:flex; align-items:center; gap:12px; margin-bottom:20px; font-size:13px; color:#7a4f00; line-height:1.5; }
-  .fasting-ribbon strong { font-weight:600; }
+  /* FASTING */
+  .fasting-ribbon { background:var(--gold-bg); border:1.5px solid var(--gold); border-radius:var(--radius-sm); padding:12px 16px; display:flex; align-items:center; gap:12px; margin-bottom:20px; font-size:13px; color:#e8c96a; line-height:1.5; }
+  .fasting-ribbon strong { color:var(--gold); font-weight:600; }
+
+  /* HYDRATION BLOCK */
+  .hydration-block { background:var(--black); border-radius:var(--radius); padding:16px 20px; margin-bottom:20px; display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .hydration-title { font-family:'Sora',sans-serif; font-size:12px; font-weight:600; color:var(--gold); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+  .hydration-text { font-size:13px; color:#ccc; line-height:1.6; }
+  .hydration-text strong { color:var(--gold); }
+  .hydration-steps { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .h-step { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:20px; padding:5px 12px; font-size:12px; color:#aaa; display:flex; align-items:center; gap:5px; }
+  .h-step strong { color:var(--gold); }
 
   /* EGG COUNTER */
-  .egg-counter { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius); padding:14px 18px; display:flex; align-items:center; gap:14px; margin-bottom:20px; }
-  .egg-icons { display:flex; gap:3px; flex-wrap:wrap; }
-  .egg-icon { font-size:20px; }
+  .egg-counter { background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius); padding:14px 18px; display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .egg-icons { display:flex; gap:4px; flex-wrap:wrap; font-size:22px; }
   .egg-label { font-size:13px; color:var(--muted); line-height:1.4; }
-  .egg-label strong { display:block; font-size:15px; color:var(--text); font-weight:600; }
+  .egg-label strong { display:block; font-size:15px; color:var(--black); font-weight:600; }
 
   /* MEALS GRID */
-  .meals-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin-bottom:20px; }
-  .meal-card { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:border-color 0.15s; }
-  .meal-card:hover { border-color:#e8a923; }
-  .photo-wrap { position:relative; width:100%; height:150px; overflow:hidden; background:var(--green-light); }
-  .photo-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
-  .photo-fallback { width:100%; height:100%; display:none; align-items:center; justify-content:center; font-size:44px; }
-  .type-badge { position:absolute; top:9px; left:9px; background:#0f0f0f; color:white; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:3px 9px; border-radius:20px; }
-  .egg-badge { position:absolute; top:9px; right:9px; background:var(--gold); color:var(--green-dark); font-size:11px; font-weight:700; padding:3px 8px; border-radius:20px; }
-  .meal-body { padding:12px 14px 14px; }
-  .meal-name { font-family:'Sora',sans-serif; font-size:13px; font-weight:600; color:var(--text); margin-bottom:8px; line-height:1.35; }
-  .macros { display:flex; gap:5px; flex-wrap:wrap; }
-  .macro { font-size:11px; color:var(--muted); background:var(--bg); border:1px solid var(--border); padding:2px 8px; border-radius:20px; }
-  .macro span { color:var(--text); font-weight:600; }
+  .meals-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-bottom:20px; }
+
+  /* MEAL CARD */
+  .meal-card { background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:border-color 0.15s; }
+  .meal-card:hover { border-color:var(--gold); }
+  .card-top { height:120px; display:flex; align-items:center; justify-content:center; position:relative; }
+  .card-emoji { font-size:56px; line-height:1; }
+  .type-badge { position:absolute; top:9px; left:9px; background:var(--black); color:var(--gold); font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:3px 9px; border-radius:20px; }
+  .egg-badge { position:absolute; top:9px; right:9px; background:var(--gold); color:var(--black); font-size:10px; font-weight:700; padding:3px 8px; border-radius:20px; }
+  .card-body { padding:12px 14px 14px; border-top:1px solid var(--border); }
+  .meal-name { font-family:'Sora',sans-serif; font-size:13px; font-weight:600; color:var(--black); margin-bottom:8px; line-height:1.3; }
+  .macros { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:10px; }
+  .mp { font-size:10px; color:var(--muted); background:var(--bg); border:1px solid var(--border); padding:2px 8px; border-radius:20px; }
+  .mp span { color:var(--black); font-weight:600; }
+
+  /* INGREDIENTS */
+  .ingredients { margin-top:8px; }
+  .ing-title { font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+  .ing-list { display:flex; flex-direction:column; gap:4px; }
+  .ing-item { display:flex; align-items:flex-start; gap:7px; font-size:12px; color:#444; line-height:1.4; }
+  .ing-dot { width:5px; height:5px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:5px; }
 
   /* TOTALS */
-  .totals-row { background:#0f0f0f; border-radius:var(--radius-sm); padding:14px 20px; display:flex; gap:20px; flex-wrap:wrap; align-items:center; margin-bottom:20px; }
-  .total-item { font-size:13px; color:#a8d4bb; }
+  .totals-row { background:var(--black); border-radius:var(--radius-sm); padding:14px 20px; display:flex; gap:20px; flex-wrap:wrap; align-items:center; margin-bottom:20px; }
+  .total-item { font-size:13px; color:#666; }
   .total-item strong { color:white; font-size:15px; font-weight:600; margin-right:2px; }
-  .total-item.kcal strong { font-size:18px; color:#e8a923; }
+  .total-item.kcal strong { font-size:18px; color:var(--gold); }
 
   /* TIPS */
-  .tips-box { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius); padding:16px 20px; }
+  .tips-box { background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius); padding:16px 20px; }
   .tips-title { font-family:'Sora',sans-serif; font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
   .tip { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--muted); line-height:1.5; padding:6px 0; border-bottom:1px solid var(--border); }
   .tip:last-child { border-bottom:none; padding-bottom:0; }
-  .tip-dot { width:6px; height:6px; border-radius:50%; background:#e8a923; flex-shrink:0; margin-top:6px; }
+  .tip-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:6px; }
+
+  /* MOVE BLOCK */
+  .move-block { background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius); padding:16px 20px; margin-top:14px; display:flex; gap:14px; align-items:flex-start; }
+  .move-icon { font-size:28px; flex-shrink:0; }
+  .move-body h4 { font-family:'Sora',sans-serif; font-size:14px; font-weight:600; color:var(--black); margin-bottom:5px; }
+  .move-body p { font-size:13px; color:var(--muted); line-height:1.7; }
+  .move-body p strong { color:var(--black); font-weight:600; }
 
   /* BOTTOM CTA */
-  .bottom-cta { margin-top:40px; background:#0f0f0f; border-radius:var(--radius); padding:28px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
-  .bottom-cta-text h3 { font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:white; margin-bottom:6px; }
-  .bottom-cta-text p { font-size:13px; color:#a8d4bb; line-height:1.5; }
-  .bottom-cta .subscribe-btn { background:var(--gold); }
-  .move-block { background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius); padding:16px 20px; margin-top:14px; display:flex; gap:14px; align-items:flex-start; }
-  .move-icon { font-size:28px; flex-shrink:0; margin-top:2px; }
-  .move-body h4 { font-family:'Sora',sans-serif; font-size:14px; font-weight:600; color:var(--text); margin-bottom:5px; }
-  .move-body p { font-size:13px; color:var(--muted); line-height:1.7; }
-  .move-body p strong { color:#0f0f0f; font-weight:600; }
-  .disclaimer { background:#f5f5f5; border-top:2px solid #e0e0e0; padding:24px; margin-top:0; }
+  .bottom-cta { margin-top:40px; background:var(--black); border-radius:var(--radius); padding:28px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+  .bottom-cta h3 { font-family:'Sora',sans-serif; font-size:17px; font-weight:700; color:white; margin-bottom:6px; }
+  .bottom-cta p { font-size:13px; color:#999; line-height:1.5; }
+
+  /* DISCLAIMER */
+  .disclaimer { background:#f5f5f5; border-top:2px solid var(--border); padding:24px; }
   .disclaimer-inner { max-width:900px; margin:0 auto; display:flex; gap:14px; align-items:flex-start; }
-  .disclaimer-icon { font-size:22px; flex-shrink:0; margin-top:2px; }
-  .disclaimer-text { font-size:12px; color:#555555; line-height:1.7; }
-  .disclaimer-text strong { display:block; font-size:13px; color:#0f0f0f; font-weight:600; margin-bottom:4px; }
+  .disclaimer-text { font-size:12px; color:#555; line-height:1.7; }
+  .disclaimer-text strong { display:block; font-size:13px; color:var(--black); font-weight:600; margin-bottom:4px; }
+
+  /* Card backgrounds per type */
+  .bg-desayuno { background: linear-gradient(135deg, #1a1400 0%, #2a2000 100%); }
+  .bg-almuerzo { background: linear-gradient(135deg, #0f1a0f 0%, #1a2800 100%); }
+  .bg-cena     { background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2a 100%); }
 
   @media(max-width:640px) {
     .pricing-inner { flex-direction:column; }
     .meals-grid { grid-template-columns:1fr 1fr; }
     .bottom-cta { flex-direction:column; }
+    .story-inner { flex-direction:column; }
   }
-  @media(max-width:380px) {
+  @media(max-width:400px) {
     .meals-grid { grid-template-columns:1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <header class="hero">
   <div class="hero-inner">
     <p class="eyebrow">SlimCoach AI · Plan de alimentación</p>
     <h1>El <span class="gold">🥚 huevo</span> es<br>la estrella de tu plato</h1>
-    <p class="hero-sub">Proteína real, grasas buenas, ayuno inteligente y agua que sana. Así se pierde peso sin efecto rebote y sin pasar hambre.</p>
+    <p class="hero-sub">Proteína real, grasas buenas, ayuno inteligente y agua que sana. Sin efecto rebote y sin pasar hambre.</p>
     <div class="pillars">
       <span class="pillar">🥚 5–8 huevos diarios</span>
       <span class="pillar">⏰ Ayuno 12–14 h</span>
@@ -168,93 +193,69 @@
   </div>
 </header>
 
-<!-- WATER BAR -->
-<div class="water-bar">
-  💧 <strong>Agua SlimCoach:</strong> 2 g sal marina + ½ limón por litro · Mínimo 3 litros al día
-</div>
+<div class="water-bar">💧 Agua SlimCoach: 2 g sal marina + ½ limón por litro · Mínimo 3 litros al día</div>
 
-<!-- ELIMINAR -->
 <div class="eliminate-bar">
   <div class="eliminate-inner">
     <span class="elim-label">❌ Elimina esto</span>
     <div class="elim-items">
-      <span class="elim-pill"><span class="elim-x">✕</span> Harinas</span>
-      <span class="elim-pill"><span class="elim-x">✕</span> Pan</span>
-      <span class="elim-pill"><span class="elim-x">✕</span> Arroz</span>
-      <span class="elim-pill"><span class="elim-x">✕</span> Pastas</span>
-      <span class="elim-pill"><span class="elim-x">✕</span> Granos</span>
-      <span class="elim-pill"><span class="elim-x">✕</span> Azúcar</span>
+      <span class="elim-pill">✕ Harinas</span>
+      <span class="elim-pill">✕ Pan</span>
+      <span class="elim-pill">✕ Arroz</span>
+      <span class="elim-pill">✕ Pastas</span>
+      <span class="elim-pill">✕ Granos</span>
+      <span class="elim-pill">✕ Azúcar</span>
     </div>
   </div>
 </div>
 
-<!-- HISTORIA PERSONAL -->
 <section class="story-section">
   <div class="story-inner">
     <div class="story-numbers">
-      <div class="story-stat">
-        <div class="num">264</div>
-        <div class="lbl">libras antes</div>
-      </div>
-      <div class="story-arrow">→</div>
-      <div class="story-stat" style="background:#1a1a00;">
-        <div class="num" style="color:var(--gold);">225</div>
-        <div class="lbl">libras hoy</div>
-      </div>
+      <div class="story-stat before"><div class="num">264</div><div class="lbl">libras antes</div></div>
+      <span class="story-arrow">→</span>
+      <div class="story-stat after"><div class="num">225</div><div class="lbl">libras hoy</div></div>
     </div>
     <div class="story-text">
       <h2>Este plan nació de mi propia experiencia</h2>
-      <p>
-        SlimCoach AI no es una dieta inventada — es el método que yo mismo usé para bajar
-        <strong>39 libras</strong> y mantenerlas fuera por <strong>casi 4 años</strong>.
-        Sin medicamentos, sin cirugías, sin pasar hambre. Solo proteína real, huevos como base,
-        grasas buenas, ayuno inteligente y agua que sana.
-        Lo que ves aquí es lo que yo hago todos los días.
-      </p>
+      <p>SlimCoach AI no es una dieta inventada — es el método que yo mismo usé para bajar <strong>39 libras</strong> y mantenerlas por <strong>casi 4 años</strong>. Sin medicamentos, sin cirugías, sin pasar hambre.</p>
       <span class="story-badge">✓ Resultado real · mantenido por casi 4 años</span>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
 <section class="pricing-section">
   <div class="pricing-inner">
     <div class="pricing-left">
       <h2>Plan SlimCoach Completo</h2>
-      <div class="price-badge">
-        <span class="price-amount">$19.99</span>
-        <span class="price-period">/mes</span>
-      </div>
+      <div class="price-row"><span class="price-amt">$19.99</span><span class="price-per">/mes</span></div>
       <p class="price-note">Menos que una consulta médica. Menos que un mes de gym.</p>
       <div class="includes">
-        <div class="include-item"><span class="check">✓</span> 7 días de menús con fotos y macros</div>
-        <div class="include-item"><span class="check">✓</span> Coach AI disponible 24/7</div>
-        <div class="include-item"><span class="check">✓</span> Plan de hidratación SlimCoach</div>
-        <div class="include-item"><span class="check">✓</span> Protocolo de ayuno intermitente</div>
-        <div class="include-item"><span class="check">✓</span> Acceso ilimitado desde cualquier dispositivo</div>
+        <div class="inc"><span class="chk">✓</span>7 días de menús con recetas e ingredientes</div>
+        <div class="inc"><span class="chk">✓</span>Coach AI disponible 24/7</div>
+        <div class="inc"><span class="chk">✓</span>Protocolo de ayuno intermitente</div>
+        <div class="inc"><span class="chk">✓</span>Plan de hidratación SlimCoach</div>
+        <div class="inc"><span class="chk">✓</span>Acceso ilimitado desde cualquier dispositivo</div>
       </div>
     </div>
     <div>
-      <!-- REEMPLAZA el href con tu link de Hotmart cuando lo tengas -->
-      <a href="TU_LINK_DE_HOTMART_AQUI" class="subscribe-btn" id="mainCta">
-        Suscribirme ahora →
-      </a>
+      <a href="TU_LINK_DE_HOTMART_AQUI" class="subscribe-btn">Suscribirme ahora →</a>
       <p class="btn-note">Pago seguro · Cancela cuando quieras</p>
     </div>
   </div>
 </section>
 
-<!-- MENUS -->
 <main class="main">
   <a href="index.html" class="back-link">← Volver al inicio</a>
   <p class="section-label">Menú semanal</p>
   <nav class="day-nav" id="dayNav"></nav>
 
   <div class="fasting-ribbon">
-    <span style="font-size:22px">🌙</span>
-    <div><strong>Ayuno de hoy:</strong> Haz tu última comida antes de que se oculte el sol. Tu cuerpo trabaja y quema grasa toda la noche — <strong>12 a 14 horas</strong> sin comer.</div>
+    <span style="font-size:20px">🌙</span>
+    <div><strong>Ayuno de hoy:</strong> Haz tu última comida antes de que se oculte el sol. Tu cuerpo quema grasa toda la noche — <strong>12 a 14 horas</strong> sin comer.</div>
   </div>
 
+  <div class="hydration-block" id="hydrationBlock"></div>
   <div class="egg-counter" id="eggCounter"></div>
   <div class="meals-grid" id="mealsGrid"></div>
   <div class="totals-row" id="totalsRow"></div>
@@ -268,139 +269,175 @@
     <span class="move-icon">🚶</span>
     <div class="move-body">
       <h4>El movimiento también cuenta</h4>
-      <p>
-        No tienes que ir al gym para transformar tu cuerpo. <strong>Caminar 20 a 30 minutos al día</strong> — preferiblemente en la mañana antes del desayuno — es una de las actividades más poderosas que puedes hacer mientras sigues el plan. Tu cuerpo en ayuno quema grasa directamente como energía. Cualquier actividad física que disfrutes suma: caminar, bailar, subir escaleras, andar en bicicleta, nadar. <strong>Lo importante es moverse, no sufrir.</strong>
-      </p>
+      <p>No tienes que ir al gym. <strong>Caminar 20–30 minutos al día</strong> — preferiblemente en la mañana antes del desayuno — es una de las actividades más poderosas del plan. Tu cuerpo en ayuno quema grasa directamente. <strong>Lo importante es moverse, no sufrir.</strong></p>
     </div>
   </div>
 
-  <!-- BOTTOM CTA -->
   <div class="bottom-cta">
-    <div class="bottom-cta-text">
+    <div>
       <h3>¿Listo para empezar?</h3>
       <p>Únete a SlimCoach AI por $19.99/mes y recibe tu plan personalizado, menús completos y acceso al coach 24/7.</p>
     </div>
-    <!-- REEMPLAZA el href con tu link de Hotmart cuando lo tengas -->
     <a href="TU_LINK_DE_HOTMART_AQUI" class="subscribe-btn">Suscribirme por $19.99/mes →</a>
   </div>
 </main>
 
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <span style="font-size:22px;flex-shrink:0;margin-top:2px">⚠️</span>
+    <p class="disclaimer-text">
+      <strong>No somos profesionales de la salud</strong>
+      SlimCoach AI es orientación nutricional basada en experiencia personal, no asesoramiento médico, diagnóstico ni tratamiento. Antes de iniciar cualquier cambio en tu alimentación o ayuno, <strong>consulta con tu médico</strong>, especialmente si tienes diabetes, enfermedades renales, cardiovasculares o estás embarazada. Los resultados individuales pueden variar.
+    </p>
+  </div>
+</div>
+
 <script>
 const days = [
-  {
-    label:"Lunes", huevos:4,
+  { label:"Lunes", huevos:4,
+    hydration: { litros:3, pasos:["1 litro al despertar con sal marina y limón","1 litro a media mañana","1 litro por la tarde antes de las 5 PM"] },
     meals:[
-      { type:"Desayuno", name:"Huevos revueltos con aguacate y sal marina", kcal:420, prot:22, grasa:34, carb:2, huevos:3,
-        img:"https://images.unsplash.com/photo-1510693206972-df098062cb71?w=500&q=80&fit=crop" },
-      { type:"Almuerzo", name:"Pechuga de pollo a la plancha + 2 huevos duros", kcal:490, prot:54, grasa:26, carb:1, huevos:2,
-        img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=500&q=80&fit=crop" },      { type:"Cena · antes del sol", name:"Omelette de huevo con salmón y aceite de oliva", kcal:460, prot:44, grasa:30, carb:0, huevos:1,
-        img:"https://images.unsplash.com/photo-1561626423-a51b45aef0a1?w=500&q=80&fit=crop" }
+      { type:"Desayuno", emoji:"🍳", bg:"bg-desayuno", name:"Huevos revueltos con aguacate y sal marina", kcal:420, prot:22, grasa:34, carb:2, huevos:3,
+        ingredientes:["3 huevos frescos","½ aguacate maduro","1 cucharada de mantequilla","Sal marina al gusto","Pimienta negra al gusto"] },
+      { type:"Almuerzo", emoji:"🍗", bg:"bg-almuerzo", name:"Pechuga de pollo a la plancha + 2 huevos duros", kcal:490, prot:54, grasa:26, carb:1, huevos:2,
+        ingredientes:["1 pechuga de pollo","2 huevos","Aceite de oliva extra virgen","Sal marina y limón","Ajo en polvo al gusto"] },
+      { type:"Cena · antes del sol", emoji:"🐟", bg:"bg-cena", name:"Omelette de huevo con salmón y aceite de oliva", kcal:460, prot:44, grasa:30, carb:0, huevos:1,
+        ingredientes:["1 huevo fresco","100g de salmón","1 cucharada aceite de oliva","Eneldo fresco","Sal marina al gusto"] }
     ],
-    tips:["Rompe el ayuno con el revuelto — es la comida más importante del día.","Bebe tu primer litro de agua SlimCoach antes del desayuno.","La cena antes del ocaso activa la quema de grasa mientras duermes."]
+    tips:["Rompe el ayuno con el revuelto — es la comida más importante del día.","Primer litro de agua SlimCoach antes del desayuno.","Cena antes del ocaso — tu cuerpo quema grasa mientras duermes."]
   },
-  {
-    label:"Martes", huevos:4,
+  { label:"Martes", huevos:4,
+    hydration:{ litros:3, pasos:["1 litro antes del desayuno","1 litro con el almuerzo","1 litro antes de las 5 PM"] },
     meals:[
-      { type:"Desayuno", name:"4 huevos fritos en mantequilla con aguacate", kcal:480, prot:26, grasa:40, carb:3, huevos:4,
-        img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&q=80&fit=crop" },
-      { type:"Almuerzo", name:"Bistec de res a la plancha con limón", kcal:520, prot:50, grasa:32, carb:2, huevos:0,
-        img:"https://images.unsplash.com/photo-1558030006-450675393462?w=500&q=80&fit=crop" },      { type:"Cena · antes del sol", name:"Camarones salteados en aceite de oliva y ajo", kcal:380, prot:40, grasa:22, carb:2, huevos:0,
-        img:"https://images.unsplash.com/photo-1565680018093-ebb6b9ab5460?w=500&q=80&fit=crop" }
+      { type:"Desayuno", emoji:"🍳", bg:"bg-desayuno", name:"4 huevos fritos en mantequilla con aguacate", kcal:480, prot:26, grasa:40, carb:3, huevos:4,
+        ingredientes:["4 huevos frescos","1 cucharada mantequilla","½ aguacate","Sal marina","Pimienta negra"] },
+      { type:"Almuerzo", emoji:"🥩", bg:"bg-almuerzo", name:"Bistec de res a la plancha con limón", kcal:520, prot:50, grasa:32, carb:2, huevos:0,
+        ingredientes:["200g bistec de res","Jugo de ½ limón","Aceite de oliva","Sal marina","Ajo fresco al gusto"] },
+      { type:"Cena · antes del sol", emoji:"🦐", bg:"bg-cena", name:"Camarones salteados en aceite de oliva y ajo", kcal:380, prot:40, grasa:22, carb:2, huevos:0,
+        ingredientes:["200g camarones pelados","3 dientes de ajo","2 cucharadas aceite de oliva","Sal marina","Perejil fresco"] }
     ],
-    tips:["Los huevos duros son el snack perfecto — prepáralos la noche anterior.","Día de proteína doble: huevos + carne roja para máxima saciedad.","Segundo litro de agua SlimCoach a media tarde."]
+    tips:["Los huevos fritos en mantequilla son saciantes y deliciosos.","Bistec de res = proteína y hierro completo.","Camarones son casi proteína pura — ideales para la cena."]
   },
-  {
-    label:"Miércoles", huevos:4,
+  { label:"Miércoles", huevos:4,
+    hydration:{ litros:3, pasos:["1 litro en ayuno al despertar","1 litro a media mañana","1 litro a media tarde"] },
     meals:[
-      { type:"Desayuno", name:"Tortilla de 3 huevos al horno con queso", kcal:390, prot:28, grasa:30, carb:2, huevos:3,
-        img:"https://images.unsplash.com/photo-1561626423-a51b45aef0a1?w=500&q=80&fit=crop" },
-      { type:"Almuerzo", name:"Costillas de cerdo al horno con limón", kcal:580, prot:48, grasa:42, carb:1, huevos:0,
-        img:"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=500&q=80&fit=crop" },      { type:"Cena · antes del sol", name:"Tilapia al horno con mantequilla y hierbas", kcal:400, prot:44, grasa:24, carb:0, huevos:1,
-        img:"https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=500&q=80&fit=crop" }
+      { type:"Desayuno", emoji:"🥚", bg:"bg-desayuno", name:"Tortilla de 3 huevos al horno con queso", kcal:390, prot:28, grasa:30, carb:2, huevos:3,
+        ingredientes:["3 huevos frescos","30g queso rallado","1 cucharada mantequilla","Sal marina","Orégano al gusto"] },
+      { type:"Almuerzo", emoji:"🍖", bg:"bg-almuerzo", name:"Costillas de cerdo al horno con limón", kcal:580, prot:48, grasa:42, carb:1, huevos:0,
+        ingredientes:["300g costillas de cerdo","Jugo de 1 limón","Sal marina","Ajo en polvo","Aceite de oliva"] },
+      { type:"Cena · antes del sol", emoji:"🐡", bg:"bg-cena", name:"Tilapia al horno con mantequilla y hierbas", kcal:400, prot:44, grasa:24, carb:0, huevos:1,
+        ingredientes:["200g filete de tilapia","1 cucharada mantequilla","Tomillo fresco","Sal marina","Jugo de limón"] }
     ],
-    tips:["Mitad de semana — tu cuerpo está en plena quema. No pares.","La tortilla al horno varía el huevo sin aburrirte.","Mínimo 3 litros con sal marina y limón hoy."]
+    tips:["Mitad de semana — tu cuerpo está en plena quema de grasa.","La tortilla al horno varía la preparación del huevo.","Hidratación clave: mínimo 3 litros con sal marina y limón."]
   },
-  {
-    label:"Jueves", huevos:6,
+  { label:"Jueves", huevos:6,
+    hydration:{ litros:3, pasos:["1 litro al despertar","1 litro antes del almuerzo","1 litro antes de las 4 PM"] },
     meals:[
-      { type:"Desayuno", name:"Huevos pochados sobre aguacate con sal marina", kcal:440, prot:24, grasa:36, carb:4, huevos:4,
-        img:"https://images.unsplash.com/photo-1577303935007-0d306ee638cf?w=500&q=80&fit=crop" },
-      { type:"Almuerzo", name:"Pollo entero asado con piel, sin carbohidratos", kcal:520, prot:50, grasa:34, carb:0, huevos:0,
-        img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=500&q=80&fit=crop" },      { type:"Cena · antes del sol", name:"Revuelto de 2 huevos con sardinas al aceite", kcal:380, prot:36, grasa:26, carb:0, huevos:2,
-        img:"https://images.unsplash.com/photo-1510693206972-df098062cb71?w=500&q=80&fit=crop" }
+      { type:"Desayuno", emoji:"🥑", bg:"bg-desayuno", name:"Huevos pochados sobre aguacate con sal marina", kcal:440, prot:24, grasa:36, carb:4, huevos:4,
+        ingredientes:["4 huevos frescos","1 aguacate maduro","Sal marina","Vinagre blanco (para pochar)","Pimienta negra"] },
+      { type:"Almuerzo", emoji:"🍗", bg:"bg-almuerzo", name:"Pollo entero asado con piel", kcal:520, prot:50, grasa:34, carb:0, huevos:0,
+        ingredientes:["300g pollo con piel","Ajo fresco","Sal marina","Aceite de oliva","Romero al gusto"] },
+      { type:"Cena · antes del sol", emoji:"🐟", bg:"bg-cena", name:"Revuelto de 2 huevos con sardinas al aceite", kcal:380, prot:36, grasa:26, carb:0, huevos:2,
+        ingredientes:["2 huevos frescos","1 lata sardinas en aceite de oliva","Sal marina","Perejil fresco","Aceite de oliva"] }
     ],
-    tips:["¡8 huevos hoy — récord de proteína completa!","El aguacate relleno de huevo es el snack más saciante del plan.","Haz tu última comida al menos 30 min antes del ocaso."]
+    tips:["¡6 huevos hoy — máxima proteína completa!","El aguacate pochado es el desayuno más saciante del plan.","Haz tu última comida 30 min antes del ocaso."]
   },
-  {
-    label:"Viernes", huevos:5,
+  { label:"Viernes", huevos:5,
+    hydration:{ litros:3, pasos:["1 litro antes del desayuno","1 litro a media mañana","1 litro a las 3 PM — última antes de la cena"] },
     meals:[
-      { type:"Desayuno", name:"Omelette de 3 huevos con tocino y queso", kcal:480, prot:32, grasa:38, carb:2, huevos:3,
-        img:"https://images.unsplash.com/photo-1561626423-a51b45aef0a1?w=500&q=80&fit=crop" },
-      { type:"Almuerzo", name:"Salmón a la plancha con aceite de oliva extra virgen", kcal:510, prot:48, grasa:34, carb:0, huevos:0,
-        img:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500&q=80&fit=crop" },      { type:"Cena · antes del sol", name:"Revuelto de 2 huevos con camarones y mantequilla", kcal:420, prot:40, grasa:28, carb:1, huevos:2,
-        img:"https://images.unsplash.com/photo-1565680018093-ebb6b9ab5460?w=500&q=80&fit=crop" }
+      { type:"Desayuno", emoji:"🥚", bg:"bg-desayuno", name:"Omelette de 3 huevos con tocino y queso", kcal:480, prot:32, grasa:38, carb:2, huevos:3,
+        ingredientes:["3 huevos frescos","2 tiras tocino","30g queso","Sal marina","Mantequilla"] },
+      { type:"Almuerzo", emoji:"🐟", bg:"bg-almuerzo", name:"Salmón a la plancha con aceite de oliva extra virgen", kcal:510, prot:48, grasa:34, carb:0, huevos:0,
+        ingredientes:["200g filete salmón","2 cucharadas aceite oliva extra virgen","Jugo de limón","Sal marina","Eneldo"] },
+      { type:"Cena · antes del sol", emoji:"🦐", bg:"bg-cena", name:"Revuelto de 2 huevos con camarones y mantequilla", kcal:420, prot:40, grasa:28, carb:1, huevos:2,
+        ingredientes:["2 huevos frescos","150g camarones","1 cucharada mantequilla","Sal marina","Ajo en polvo"] }
     ],
-    tips:["¡Llegaste al viernes! Tu metabolismo está en su mejor punto.","Prepara las comidas del fin de semana hoy para no improvisar.","Tercer litro de agua SlimCoach antes de las 6 PM."]
+    tips:["¡Llegaste al viernes! Tu metabolismo está en su mejor punto.","Prepara las comidas del fin de semana hoy.","Tercer litro de agua SlimCoach antes de las 3 PM."]
   },
-  {
-    label:"Sábado", huevos:4,
+  { label:"Sábado", huevos:4,
+    hydration:{ litros:3, pasos:["1 litro al despertar en ayuno","1 litro antes del almuerzo","1 litro antes de las 5 PM"] },
     meals:[
-      { type:"Desayuno", name:"4 huevos revueltos con mantequilla y aguacate", kcal:520, prot:28, grasa:44, carb:3, huevos:4,
-        img:"https://images.unsplash.com/photo-1510693206972-df098062cb71?w=500&q=80&fit=crop" },
-      { type:"Almuerzo", name:"Parrillada de carnes: res, pollo y cerdo", kcal:660, prot:62, grasa:44, carb:1, huevos:0,
-        img:"https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?w=500&q=80&fit=crop" },      { type:"Cena · antes del sol", name:"Tortilla de 2 huevos con queso crema", kcal:310, prot:20, grasa:24, carb:1, huevos:2,
-        img:"https://images.unsplash.com/photo-1561626423-a51b45aef0a1?w=500&q=80&fit=crop" }
+      { type:"Desayuno", emoji:"🍳", bg:"bg-desayuno", name:"4 huevos revueltos con mantequilla y aguacate", kcal:520, prot:28, grasa:44, carb:3, huevos:4,
+        ingredientes:["4 huevos frescos","1 cucharada mantequilla","½ aguacate","Sal marina","Pimienta negra"] },
+      { type:"Almuerzo", emoji:"🔥", bg:"bg-almuerzo", name:"Parrillada de carnes: res, pollo y cerdo", kcal:660, prot:62, grasa:44, carb:1, huevos:0,
+        ingredientes:["150g carne de res","150g pollo","100g cerdo","Sal marina gruesa","Aceite de oliva y limón"] },
+      { type:"Cena · antes del sol", emoji:"🥚", bg:"bg-cena", name:"Tortilla de 2 huevos con queso crema", kcal:310, prot:20, grasa:24, carb:1, huevos:2,
+        ingredientes:["2 huevos frescos","2 cucharadas queso crema","Sal marina","Mantequilla","Cebollín al gusto"] }
     ],
-    tips:["Sábado de parrilla — la carne asada es 100% Plan SlimCoach.","Evita salsas con azúcar. Solo limón, sal marina y hierbas.","Celebra tu semana comiendo bien, no saliendo del plan."]
+    tips:["Sábado de parrilla — carne asada es 100% Plan SlimCoach.","Evita salsas con azúcar. Solo limón, sal marina y hierbas.","Celebra tu semana comiendo bien, no saliendo del plan."]
   },
-  {
-    label:"Domingo", huevos:3,
+  { label:"Domingo", huevos:3,
+    hydration:{ litros:3, pasos:["1 litro al despertar — pésate antes","1 litro a media mañana","1 litro a media tarde"] },
     meals:[
-      { type:"Desayuno", name:"Huevos benedictinos sin pan con salsa de mantequilla", kcal:430, prot:26, grasa:34, carb:2, huevos:3,
-        img:"https://images.unsplash.com/photo-1577303935007-0d306ee638cf?w=500&q=80&fit=crop" },
-      { type:"Almuerzo", name:"Rosbif de ternera al horno con hierbas frescas", kcal:560, prot:58, grasa:36, carb:0, huevos:0,
-        img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=80&fit=crop" },      { type:"Cena · antes del sol", name:"Langostinos al ajo con aceite de oliva", kcal:350, prot:38, grasa:20, carb:1, huevos:0,
-        img:"https://images.unsplash.com/photo-1565680018093-ebb6b9ab5460?w=500&q=80&fit=crop" }
+      { type:"Desayuno", emoji:"🥚", bg:"bg-desayuno", name:"Huevos benedictinos sin pan con salsa de mantequilla", kcal:430, prot:26, grasa:34, carb:2, huevos:3,
+        ingredientes:["3 huevos frescos","2 cucharadas mantequilla","Jugo de limón","Sal marina","Vinagre para pochar"] },
+      { type:"Almuerzo", emoji:"🥩", bg:"bg-almuerzo", name:"Rosbif de ternera al horno con hierbas frescas", kcal:560, prot:58, grasa:36, carb:0, huevos:0,
+        ingredientes:["300g ternera","Romero fresco","Tomillo","Sal marina","Aceite de oliva"] },
+      { type:"Cena · antes del sol", emoji:"🦞", bg:"bg-cena", name:"Langostinos al ajo con aceite de oliva", kcal:350, prot:38, grasa:20, carb:1, huevos:0,
+        ingredientes:["200g langostinos","4 dientes de ajo","3 cucharadas aceite oliva","Sal marina","Perejil y limón"] }
     ],
     tips:["Pésate esta mañana en ayuno — ese es tu número real.","Domingo de reset: cocina huevos duros para toda la semana.","Planifica tus 7 días del lunes. El plan funciona con estructura."]
   }
 ];
 
+function eggRow(n) {
+  let s = '';
+  for(let i=0;i<n;i++) s += '🥚';
+  return s;
+}
+
 function render(idx) {
   const day = days[idx];
 
+  // Tabs
   document.getElementById('dayNav').innerHTML = days.map((d,i) =>
     `<button class="day-btn${i===idx?' active':''}" onclick="render(${i})">${d.label}</button>`
   ).join('');
 
-  let eggIcons = '';
-  for(let i=0;i<day.huevos;i++) eggIcons += '<span class="egg-icon">🥚</span>';
+  // Hydration
+  document.getElementById('hydrationBlock').innerHTML = `
+    <div style="flex:1">
+      <p class="hydration-title">💧 Hidratación SlimCoach del día</p>
+      <p class="hydration-text">Mínimo <strong>${day.hydration.litros} litros</strong> hoy · <strong>2g sal marina + ½ limón</strong> por cada litro</p>
+      <div class="hydration-steps">
+        ${day.hydration.pasos.map(p => `<span class="h-step">💧 ${p}</span>`).join('')}
+      </div>
+    </div>
+  `;
+
+  // Egg counter
   document.getElementById('eggCounter').innerHTML = `
-    <div class="egg-icons">${eggIcons}</div>
+    <div class="egg-icons">${eggRow(day.huevos)}</div>
     <div class="egg-label"><strong>${day.huevos} huevos hoy</strong>La estrella del plan. En cualquier presentación.</div>
   `;
 
+  // Meals
   document.getElementById('mealsGrid').innerHTML = day.meals.map(m => `
     <div class="meal-card">
-      <div class="photo-wrap">
-        <img src="${m.img}" alt="${m.name}" loading="lazy"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="photo-fallback">🍳</div>
+      <div class="card-top ${m.bg}">
+        <span class="card-emoji">${m.emoji}</span>
         <span class="type-badge">${m.type}</span>
-        ${m.huevos>0?`<span class="egg-badge">🥚×${m.huevos}</span>`:''}
+        ${m.huevos>0 ? `<span class="egg-badge">🥚×${m.huevos}</span>` : ''}
       </div>
-      <div class="meal-body">
+      <div class="card-body">
         <p class="meal-name">${m.name}</p>
         <div class="macros">
-          <span class="macro"><span>${m.kcal}</span> kcal</span>
-          <span class="macro"><span>${m.prot}g</span> prot</span>
-          <span class="macro"><span>${m.grasa}g</span> grasa</span>
-          <span class="macro"><span>${m.carb}g</span> carb</span>
+          <span class="mp"><span>${m.kcal}</span> kcal</span>
+          <span class="mp"><span>${m.prot}g</span> prot</span>
+          <span class="mp"><span>${m.grasa}g</span> grasa</span>
+          <span class="mp"><span>${m.carb}g</span> carb</span>
+        </div>
+        <div class="ingredients">
+          <p class="ing-title">Ingredientes</p>
+          <div class="ing-list">
+            ${m.ingredientes.map(i => `<div class="ing-item"><div class="ing-dot"></div><span>${i}</span></div>`).join('')}
+          </div>
         </div>
       </div>
     </div>
   `).join('');
 
+  // Totals
   const t = day.meals.reduce((a,m)=>({kcal:a.kcal+m.kcal,prot:a.prot+m.prot,grasa:a.grasa+m.grasa,carb:a.carb+m.carb}),{kcal:0,prot:0,grasa:0,carb:0});
   document.getElementById('totalsRow').innerHTML = `
     <span class="total-item kcal"><strong>${t.kcal}</strong> kcal</span>
@@ -410,24 +447,16 @@ function render(idx) {
     <span class="total-item"><strong>${day.huevos}</strong> huevos</span>
   `;
 
+  // Tips
   document.getElementById('tipsList').innerHTML = day.tips.map(tip =>
     `<div class="tip"><div class="tip-dot"></div><span>${tip}</span></div>`
   ).join('');
+
+  // Twemoji
+  twemoji.parse(document.body);
 }
 
 render(0);
 </script>
-
-<!-- DISCLAIMER LEGAL -->
-<div class="disclaimer">
-  <div class="disclaimer-inner">
-    <span class="disclaimer-icon">⚠️</span>
-    <p class="disclaimer-text">
-      <strong>Aviso importante — No somos profesionales de la salud</strong>
-      SlimCoach AI es una herramienta de orientación nutricional general basada en experiencia personal y no constituye asesoramiento médico, diagnóstico ni tratamiento. La información contenida en este plan es solo de carácter educativo e informativo. Antes de iniciar cualquier cambio en tu alimentación, régimen de ayuno o rutina de ejercicio, <strong>consulta con tu médico o un profesional de la salud certificado</strong>, especialmente si tienes condiciones preexistentes como diabetes, enfermedades renales, cardiovasculares, embarazo u otras. SlimCoach AI no se hace responsable por decisiones tomadas con base en el contenido de esta plataforma. Los resultados individuales pueden variar.
-    </p>
-  </div>
-</div>
-
 </body>
 </html>
